@@ -1,0 +1,31 @@
+<html>
+<body>    
+<head>
+    <title> Bangalore Home Price  </title>
+    <link rel='stylesheet' href='static/style.css'>
+</head>
+<h1>Welcome to Bangalore Home Sales Price Page</h1>
+<form action='/predict' method="post">
+    <label><p>Enter House Parameter Values</p></label>
+    
+    <label for='location'>location  :</label>
+    <select id="location">
+        {% for location in locations %}
+        <option value="{{location}}">{{location}}</option>
+        {% endfor %}
+    </select><br><br>
+    <label for='total_sqft'>total_sqft   :</label>
+    <input type='text' name='total_sqft' id='total_sqft' placeholder='enter value' required='required'><br><br>
+    <label for='Bathroom'>Bathroom     :</label>
+    <input type='text' name='Bathroom' id='Bathroom' placeholder='enter no of bathrooms' required='required'><br><br>
+    <label for='Balcony'>Balcony   :</label>
+    <input type='text' name='Balcony' id='Balcony' placeholder='enter no of balcony' required='required'><br><br>
+    <label for='BHK_Size'>BHK_Size   :</label>
+    <input type='text' name='BHK_Size' id='BHK_Size' placeholder='enter BHK size' required='required'><br><br>
+    
+    <input type='submit' value='Predict'>
+</form>
+
+<h2>Sales Price of House  is {{results}}</h2>
+</body>
+</html>
